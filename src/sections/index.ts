@@ -1,0 +1,9 @@
+export { default as Hero } from "./hero";
+export { default as Course } from "./course";
+export { default as WhyChooseUs } from "./why-choose-us";
+export { default as Service } from "./service";
+export { default as Pricing } from "./pricing";
+export { default as Feedback } from "./feedback";
+export { default as About } from "./about";
+export { default as Faq } from "./faq";
+export { default as Cta } from "./cta";
