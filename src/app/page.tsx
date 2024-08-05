@@ -10,9 +10,12 @@ import {
   Cta,
 } from "@/sections";
 
+import SeminarSticky from "@/components/seminar-sticky";
+
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
+      <SeminarSticky/>
       <Hero />
       <Course />
       <WhyChooseUs />

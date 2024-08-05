@@ -26,7 +26,7 @@ const testimonials = [
 
 export default function Feedback() {
   return (
-    <Section className="relative">
+    <Section id="reviews" className="relative">
       <SectionContentWrapper className="flex items-center gap-52 lg:flex-col lg:gap-16">
         <div className="flex flex-col lg:items-center">
           <Heading className="text-left text-5xl lg:text-center">

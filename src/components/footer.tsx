@@ -6,19 +6,19 @@ import Link from "next/link";
 export const companyLinks = [
   {
     name: "About",
-    href: "/about",
+    href: "#aboutus",
   },
-  {
-    name: "Home",
-    href: "/home",
-  },
+  // {
+  //   name: "Home",
+  //   href: "/home",
+  // },
   {
     name: "Pricing",
-    href: "/explore",
+    href: "#pricing",
   },
   {
-    name: "Demo",
-    href: "/demo",
+    name: "Reviews",
+    href: "#reviews",
   },
   {
     name: "Contact Us",
@@ -37,7 +37,7 @@ export const supportLinks = [
   },
   {
     name: "FAQ's",
-    href: "/faqs",
+    href: "#faq",
   },
   {
     name: "Products",
@@ -86,7 +86,7 @@ export default function Footer() {
                   {companyLinks.map((item, idx) => {
                     return (
                       <li key={idx}>
-                        <Link href={item.href}>{item.name}</Link>
+                        <a href={item.href}>{item.name}</a>
                       </li>
                     );
                   })}
@@ -99,7 +99,7 @@ export default function Footer() {
                   {supportLinks.map((item, idx) => {
                     return (
                       <li key={idx}>
-                        <Link href={item.href}>{item.name}</Link>
+                        <a href={item.href}>{item.name}</a>
                       </li>
                     );
                   })}
@@ -139,7 +139,10 @@ export default function Footer() {
       <div className="mx-auto my-10 h-[1px] w-full max-w-[90rem] bg-white/50" />
       <div className="container text-center text-sm text-neutral-6 sm:text-xs">
         <p className="flex justify-center gap-4">
-          <span className="font-semibold">© 2023 Newsify. All rights reserved</span>|
+          <span className="font-semibold">
+            © 2023 Newsify. All rights reserved
+          </span>
+          |
           <span>
             Cookie Settings, Anti-Spam, Privacy, User agreement, Legal Notice
             and Responsible Disclosure

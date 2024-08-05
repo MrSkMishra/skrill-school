@@ -17,7 +17,7 @@ const SkrillCourseCharacteristics = [
 
 export default function Pricing() {
   return (
-    <Section containerClassName="flex flex-col items-center">
+    <Section id="pricing" containerClassName="flex flex-col items-center">
       <Heading className="max-w-3xl">These specification at just</Heading>
       <SectionContentWrapper className="w-full max-w-6xl">
         <div className="flex justify-center gap-24 lg:flex-col lg:items-center">
