@@ -1,4 +1,5 @@
-import { Phone, Mail } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Phone, Mail, Download } from "lucide-react";
 
 type IconProps = {
   className?: string;
@@ -50,6 +51,124 @@ function DoodleArrow({ className }: IconProps) {
   );
 }
 
+function Computer({ className }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 100 104"
+      className={className}
+    >
+      <path
+        stroke="#E68369"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="4"
+        d="M45.83 19.5H22.915c-3.452 0-6.25 2.91-6.25 6.5v45.5h66.667V47.667"
+      ></path>
+      <path
+        fill="#E68369"
+        stroke="#E68369"
+        strokeLinejoin="round"
+        strokeWidth="4"
+        d="M8.332 71.5h83.333v4.333c0 7.18-5.596 13-12.5 13H20.832c-6.904 0-12.5-5.82-12.5-13V71.5z"
+      ></path>
+      <path
+        stroke="#E68369"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="4"
+        d="M68.747 15.168l-8.333 8.667 8.333 8.666M81.25 15.168l8.333 8.667L81.25 32.5"
+      ></path>
+    </svg>
+  );
+}
+function Money({ className }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 87 87"
+      className={className}
+    >
+      <path
+        fill="#E68369"
+        d="M43.5 45.313a12.687 12.687 0 100 25.374 12.687 12.687 0 000-25.374zM38.062 58a5.438 5.438 0 1110.876 0 5.438 5.438 0 01-10.876 0z"
+      ></path>
+      <path
+        fill="#E68369"
+        d="M63.532 18.547L52.008 2.391 9.635 36.24l-2.349-.026v.037H5.438v43.5h76.124v-43.5h-3.487l-6.938-20.297-7.605 2.592zm6.884 17.705H34.064l27.075-9.23 5.517-1.765 3.76 10.995zM56.369 20.99L28.42 30.517l22.134-17.683 5.815 8.157zM12.688 65.865V50.132a10.874 10.874 0 006.633-6.63H67.68a10.876 10.876 0 006.633 6.633v15.733a10.875 10.875 0 00-6.633 6.634h-48.35a10.91 10.91 0 00-6.642-6.638z"
+      ></path>
+    </svg>
+  );
+}
+function Brain({ className }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 80 80"
+      className={className}
+    >
+      <mask
+        id="mask0_860_3040"
+        style={{ maskType: "luminance" }}
+        width="66"
+        height="68"
+        x="8"
+        y="6"
+        maskUnits="userSpaceOnUse"
+      >
+        <path
+          fill="#fff"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="4"
+          d="M63.333 34.999l8.334 15-8.334 1.666v10h-5l-10-1.666-1.666 11.666h-25l-3.334-17.301C13.2 49.504 10 42.625 10 34.999 10 20.27 21.938 8.332 36.667 8.332c14.728 0 26.666 11.938 26.666 26.667z"
+        ></path>
+        <path
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="4"
+          d="M28.332 31.665A8.333 8.333 0 1136.665 40v5m0 10v1.666"
+        ></path>
+      </mask>
+      <g mask="url(#mask0_860_3040)">
+        <path fill="#E68369" d="M0 0h80v80H0V0z"></path>
+      </g>
+    </svg>
+  );
+}
+
+function People({ className }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 85 85"
+      className={className}
+    >
+      <path
+        fill="#E68369"
+        fillRule="evenodd"
+        d="M59.04 46.504c4.851 3.294 8.251 7.756 8.251 13.706v10.625h10.625a3.552 3.552 0 003.542-3.541V60.21c0-7.72-12.644-12.29-22.419-13.706z"
+        clipRule="evenodd"
+      ></path>
+      <path
+        fill="#E68369"
+        d="M31.874 42.501c7.824 0 14.166-6.342 14.166-14.166 0-7.824-6.342-14.167-14.166-14.167-7.824 0-14.167 6.343-14.167 14.167S24.05 42.5 31.874 42.5z"
+      ></path>
+      <path
+        fill="#E68369"
+        fillRule="evenodd"
+        d="M53.126 42.501c7.827 0 14.167-6.34 14.167-14.166 0-7.827-6.34-14.167-14.167-14.167-1.664 0-3.223.354-4.71.85a21.179 21.179 0 010 26.633c1.487.496 3.046.85 4.71.85zm-21.25 3.542c-9.456 0-28.333 4.746-28.333 14.167v7.083a3.552 3.552 0 003.542 3.542h49.583a3.552 3.552 0 003.542-3.542V60.21c0-9.421-18.877-14.167-28.334-14.167z"
+        clipRule="evenodd"
+      ></path>
+    </svg>
+  );
+}
 function Quote({ className }: IconProps) {
   return (
     <svg
@@ -72,7 +191,7 @@ function Unlock({ className }: IconProps) {
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 79 79"
-      className={className}
+      className={cn("fill-[#E68369]", className)}
     >
       <g clipPath="url(#clip0_2008_2690)">
         <path
@@ -95,10 +214,69 @@ function Unlock({ className }: IconProps) {
   );
 }
 
+function Hat({ className }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 71 70"
+      className={className}
+    >
+      <path
+        fill="#FF9A62"
+        d="M66.5 38.333h-8.333v-4.166A4.152 4.152 0 0054 30h-8.333a4.152 4.152 0 00-4.167 4.167v4.166h-8.333c-2.313 0-4.146 1.855-4.146 4.167L29 65.417a4.152 4.152 0 004.167 4.166H66.5a4.152 4.152 0 004.167-4.166V42.5a4.152 4.152 0 00-4.167-4.167zm-12.5 0h-8.333v-4.166H54v4.166z"
+      ></path>
+      <path
+        fill="#FF9A62"
+        d="M25.83 28.213c-5.405 0-9.998 1.572-12.998 4.036v4.583h26v-4.583c-3-2.464-7.594-4.036-13.001-4.036zm23.872-2.352L25.768 14.832 1.844 25.861l3.988 1.825v2.807c-1 .207-1.003.731-1.003 1.354 0 .368.122.799.354 1.057l-1.368 2.928h4.88l-1.356-2.93c.228-.258.415-.638.415-1.006 0-.622-.922-1.197-.922-1.404v-2.337l5 2.246v-.199c3-2.609 8.27-4.265 13.998-4.265 5.729 0 11.002 1.656 14.002 4.265v.199l9.87-4.54z"
+      ></path>
+    </svg>
+  );
+}
+
+function Bag({ className }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 49 46"
+      className={className}
+    >
+      <path
+        fill="#FF9A62"
+        d="M43.5 9.667h-9.667V4.833A4.817 4.817 0 0029 0h-9.667A4.817 4.817 0 0014.5 4.833v4.834H4.833c-2.682 0-4.809 2.15-4.809 4.833L0 41.083a4.817 4.817 0 004.833 4.834H43.5a4.817 4.817 0 004.833-4.834V14.5A4.817 4.817 0 0043.5 9.667zm-14.5 0h-9.667V4.833H29v4.834z"
+      ></path>
+    </svg>
+  );
+}
+function Doubt({ className }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 50 50"
+      className={className}
+    >
+      <path
+        fill="#FF9A62"
+        d="M24.938 0a24.938 24.938 0 110 49.875 24.938 24.938 0 010-49.875zm1.321 10.659c-2.9 0-5.173.823-6.858 2.469-1.724 1.646-2.547 3.919-2.547 6.818h4.468c0-1.645.313-2.939.98-3.84.744-1.097 1.959-1.607 3.683-1.607 1.332 0 2.39.353 3.135 1.098.705.744 1.097 1.763 1.097 3.056 0 .98-.353 1.92-1.058 2.783l-.47.548c-2.547 2.273-4.076 3.919-4.585 4.977-.549 1.058-.784 2.351-.784 3.84v.549h4.507v-.549c0-.94.196-1.763.587-2.547a6.073 6.073 0 011.568-1.96c1.881-1.645 3.017-2.703 3.37-3.095.94-1.254 1.45-2.86 1.45-4.82 0-2.39-.784-4.272-2.351-5.643-1.568-1.41-3.645-2.077-6.192-2.077zm-.705 22.611a3.021 3.021 0 00-2.155.823 2.75 2.75 0 00-.863 2.116c0 .862.275 1.568.862 2.116.577.56 1.352.87 2.156.862.862 0 1.567-.274 2.155-.822a2.868 2.868 0 00.901-2.156 2.891 2.891 0 00-.862-2.116 3.114 3.114 0 00-2.194-.823z"
+      ></path>
+    </svg>
+  );
+}
+
 export const Icons = {
   unlock: Unlock,
   quote: Quote,
   arrow: DoodleArrow,
   phone: Phone,
   mail: Mail,
+  computer: Computer,
+  money: Money,
+  brain: Brain,
+  people: People,
+  download: Download,
+  hat: Hat,
+  bag: Bag,
+  doubt: Doubt,
 };

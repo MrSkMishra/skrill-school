@@ -4,7 +4,7 @@ import { Section, SectionContentWrapper } from "@/components/custom/section";
 
 export default function About() {
   return (
-    <Section containerClassName="relative flex flex-col items-center">
+    <Section id="aboutus" containerClassName="relative flex flex-col items-center">
       {/* <Image src="/childrens.png" fill alt="childrens-play" objectFit="cover" /> */}
       <Heading className="max-w-3xl text-5xl">Who we are?</Heading>
       <SectionContentWrapper className="w-full flex justify-center pt-0">

@@ -45,7 +45,7 @@ const faqContent = [
 
 export default function Faq() {
   return (
-    <Section containerClassName="flex flex-col items-center rounded-lg bg-gradient-to-b from-primary/10 to-secondary">
+    <Section id="faq" containerClassName="flex flex-col items-center rounded-lg bg-gradient-to-b from-primary/10 to-secondary">
       <Heading className="max-w-3xl pt-16">
         FAQ<span>s</span>
       </Heading>

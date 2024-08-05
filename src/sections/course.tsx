@@ -1,10 +1,11 @@
+import Link from "next/link";
 import Heading from "@/components/custom/heading";
 import { Section, SectionContentWrapper } from "@/components/custom/section";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 export default function Course() {
   return (
-    <Section containerClassName="flex flex-col items-center">
+    <Section id="ourprograms" containerClassName="flex flex-col items-center">
       <Heading className="max-w-3xl">
         Become a software developer and land your dream job.
       </Heading>
@@ -22,7 +23,9 @@ export default function Course() {
               <h2>Backend</h2>
               <div className="flex items-center">
                 <h2>Backend</h2>
-                <Button className="ml-auto py-6 px-8">Course detail</Button>
+                <Link href="course" className={buttonVariants({ variant: "default", className: "ml-auto" })}>
+                  Course detail
+                </Link>
               </div>
             </div>
           </div>

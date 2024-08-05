@@ -14,18 +14,20 @@ export function SectionContentWrapper({
 }
 
 type SectionProps = {
+  id?: string;
   className?: string;
   containerClassName?: string;
   children: ReactNode;
 };
 
 export function Section({
+  id,
   className,
   containerClassName,
   children,
 }: SectionProps) {
   return (
-    <section className={cn("py-6", className)}>
+    <section id={id} className={cn("py-6", className)}>
       <div className={cn("container", containerClassName)}>{children}</div>
     </section>
   );

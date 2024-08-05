@@ -29,6 +29,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${fontMain.variable} ${mainHeading.variable} antialiased scrollbar-hide`}
+      suppressHydrationWarning
     >
       <body className="overflow-x-hidden">
         <Nav />

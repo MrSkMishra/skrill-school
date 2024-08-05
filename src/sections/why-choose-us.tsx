@@ -18,22 +18,22 @@ export default function WhyChooseUs() {
             description="Learning coding opens doors to high-demand tech jobs, enhancing your employability in a competitive market."
           />
           <CourseCard
-            icon={<Icons.unlock className="size-16" />}
+            icon={<Icons.computer className="size-16" />}
             title="Gain Practical Experience"
             description="Our live classes include internships, allowing you to apply your skills in real-world scenarios, making you job-ready."
           />
           <CourseCard
-            icon={<Icons.unlock className="size-16" />}
+            icon={<Icons.money className="size-16" />}
             title="Boost Your Earning Potential"
             description="Learning coding opens doors to high-demand tech jobs, enhancing your employability in a competitive market."
           />
           <CourseCard
-            icon={<Icons.unlock className="size-16" />}
+            icon={<Icons.brain className="size-16" />}
             title="Develop Problem-Solving Skills"
             description="Learning coding opens doors to high-demand tech jobs, enhancing your employability in a competitive market."
           />
           <CourseCard
-            icon={<Icons.unlock className="size-16" />}
+            icon={<Icons.people className="size-16" />}
             title="Join a Thriving Community"
             description="Connect with industry professionals and peers, expanding your network and support system as you advance in your career."
           />
