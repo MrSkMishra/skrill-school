@@ -5,6 +5,15 @@ export default function Hero() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <Image
+        src="/polygon.svg"
+        width={768}
+        height={921}
+        alt="show-case"
+        objectFit="cover"
+        unoptimized
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-35"
+      />
+      <Image
         src="/main-guy.png"
         width={900}
         height={921}
