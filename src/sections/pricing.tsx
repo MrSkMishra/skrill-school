@@ -1,6 +1,9 @@
+"use client";
+
 import Heading from "@/components/custom/heading";
 import { Section, SectionContentWrapper } from "@/components/custom/section";
 import { Button } from "@/components/ui/button";
+import { useModal } from "@/context/modal";
 
 const freeCourseCharacteristics = [
   "3-6 months Duration",
@@ -16,12 +19,21 @@ const SkrillCourseCharacteristics = [
 ];
 
 export default function Pricing() {
+  const { setIsModalOpen, setModalHeading } = useModal();
+
+  function onClickHandler(event) {
+    if (event.target.dataset.btn) {
+      setModalHeading("Enroll now to skrill school");
+    } else {
+      setModalHeading("Request a callback from the team");
+    }
+    setIsModalOpen(true);
+  }
   return (
     <Section id="pricing" containerClassName="flex flex-col items-center">
       <Heading className="max-w-3xl">These specification at just</Heading>
       <SectionContentWrapper className="w-full max-w-6xl">
         <div className="flex justify-center gap-24 lg:flex-col lg:items-center">
-
           <div className="bg-white text-primary rounded-lg flex flex-col items-center p-8 pb-0 space-y-6 max-w-sm min-h-[600px]">
             <h1 className="text-4xl font-bold">Others</h1>
             <p className="text-5xl py-16 font-bold">₹3,00,000</p>
@@ -49,11 +61,21 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <Button variant="outline" size="lg" className="">Enroll now</Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className=""
+              data-btn="enroll"
+              onClick={onClickHandler}
+            >
+              Enroll now
+            </Button>
           </div>
         </div>
         <div className="flex justify-center mt-16">
-          <Button className="px-10 py-8">Request a call back</Button>
+          <Button className="px-10 py-8" onClick={onClickHandler}>
+            Request a call back
+          </Button>
         </div>
       </SectionContentWrapper>
     </Section>

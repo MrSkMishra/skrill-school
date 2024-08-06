@@ -1,13 +1,24 @@
+"use client";
+
 import Link from "next/link";
 import Heading from "@/components/custom/heading";
 import { Section, SectionContentWrapper } from "@/components/custom/section";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { useModal } from "@/context/modal";
+import { Calendar } from "@/components/ui/calendar";
 
 export default function Course() {
+  const { setIsModalOpen, setModalHeading } = useModal();
+
+  function onClickHandler() {
+    setModalHeading("Book your slot");
+    setIsModalOpen(true);
+  }
   return (
     <Section id="ourprograms" containerClassName="flex flex-col items-center">
       <Heading className="max-w-3xl">
-        Become a software developer and land your dream job.
+        Become a <span className="text-secondary">software developer</span> and
+        land your dream job.
       </Heading>
       <SectionContentWrapper className="w-full max-w-6xl">
         <div className="flex items-center lg:flex-col lg:gap-16">
@@ -20,10 +31,17 @@ export default function Course() {
                 Explore the courses
               </h2>
               <h2>Full Stack</h2>
-              <h2>Backend</h2>
+              <h2>Front-end</h2>
+              <h2>Product management</h2>
               <div className="flex items-center">
-                <h2>Backend</h2>
-                <Link href="course" className={buttonVariants({ variant: "default", className: "ml-auto" })}>
+                <h2>Back-end</h2>
+                <Link
+                  href="course"
+                  className={buttonVariants({
+                    variant: "default",
+                    className: "ml-auto",
+                  })}
+                >
                   Course detail
                 </Link>
               </div>
@@ -35,7 +53,9 @@ export default function Course() {
               Next session starts from <br />
               <span className="text-secondary">20 Aug 2024</span>
             </h2>
-            <Button className="py-6 px-8">Book your slot</Button>
+            <Button className="py-6 px-8" onClick={onClickHandler}>
+              Book your slot
+            </Button>
           </div>
         </div>
       </SectionContentWrapper>

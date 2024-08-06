@@ -2,12 +2,12 @@ import localFont from "next/font/local";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import "./globals.css";
-
+import { ModalProvider } from "@/context/modal";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 
 const fontMain = localFont({
-  src: "../assets/Inter-VariableFont_slnt,wght.ttf",
+  src: "../assets/Helvetica.ttf",
   variable: "--font-main",
 });
 
@@ -34,10 +34,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="overflow-x-hidden">
-        <Nav />
-        {children}
-        <Footer />
-        <Toaster />
+        <ModalProvider>
+          <Nav />
+          {children}
+          <Footer />
+          <Toaster />
+        </ModalProvider>
       </body>
     </html>
   );

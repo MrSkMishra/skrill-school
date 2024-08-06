@@ -1,5 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+
+import { Calendar as CalendarIcon } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -27,6 +30,8 @@ import { getSheetData } from "../actions/google-sheets.action";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useModal } from "@/context/modal";
+// import { Calendar } from "@/components/ui/calendar";
 
 const phoneRegex = new RegExp(
   /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
@@ -46,7 +51,9 @@ const formSchema = z.object({
 });
 
 export default function SeminarSticky() {
-  const [showModal, setShowModal] = useState(false);
+  // const [date, setDate] = useState();
+  const { isModalOpen, setIsModalOpen, modalHeading, setModalHeading } =
+    useModal();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -63,7 +70,12 @@ export default function SeminarSticky() {
     } else {
       toast.error("Something went wrong! Please try again later");
     }
-    setShowModal(false);
+    setIsModalOpen(false);
+  }
+
+  function onClickHandler() {
+    setModalHeading("Register now for the webinar");
+    setIsModalOpen(true);
   }
 
   return (
@@ -71,14 +83,17 @@ export default function SeminarSticky() {
       <h3>
         Know more about the Course <br /> with our free Webinar
       </h3>
-      <Dialog open={showModal} onOpenChange={(value) => setShowModal(value)}>
-        <DialogTrigger asChild>
+      <Dialog
+        open={isModalOpen}
+        onOpenChange={(value) => setIsModalOpen(value)}
+      >
+        <DialogTrigger asChild onClick={onClickHandler}>
           <Button className="self-center px-8">Book now</Button>
         </DialogTrigger>
         <DialogContent className="bg-white rounded-lg">
           <DialogHeader>
             <DialogTitle className="text-4xl text-primary font-normal">
-              Register your free webinar
+              {modalHeading}
             </DialogTitle>
             <DialogDescription>
               Sign up to start your Journey.
@@ -138,8 +153,14 @@ export default function SeminarSticky() {
                   </FormItem>
                 )}
               />
+              {/* <Calendar */}
+              {/*   mode="single" */}
+              {/*   selected={date} */}
+              {/*   onSelect={setDate} */}
+              {/*   className="rounded-md border" */}
+              {/* /> */}
               <DialogFooter>
-                <Button className="self-center px-8" onClick={()=>onSubmit}>
+                <Button className="self-center px-8" onClick={() => onSubmit}>
                   Book now!
                 </Button>
               </DialogFooter>

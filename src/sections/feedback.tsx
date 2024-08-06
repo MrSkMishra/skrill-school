@@ -5,22 +5,25 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const testimonials = [
   {
-    avatarSrc: "https://mighty.tools/mockmind-api/content/human/7.jpg",
-    name: "Ashley Cooper",
+    avatarSrc: "/aditya.png",
+    name: "Aditya- Frontend Developer",
+    desc: "Placed at Bfog",
     testimonial:
-      "Teamollo delivered the site within the timeline as they requested. In the end, the client found a 50% increase in traffic within days since its launch.",
+      "I enrolled in Skrill School and it transformed my understanding of programming. The instructors are knowledgeable and patient, making complex topics easy to grasp.",
   },
   {
-    avatarSrc: "https://mighty.tools/mockmind-api/content/human/68.jpg",
-    name: "Ashley Cooper",
+    avatarSrc: "/nikhil.png",
+    name: "Nikhil Gupta- Frontend Developer",
+    desc: "Placed at Bfog",
     testimonial:
-      "Teamollo delivered the site within the timeline as they requested. In the end, the client found a 50% increase in traffic within days since its launch.",
+      "Skrill School has made learning to code an enjoyable experience. The interactive lessons and supportive community have helped me develop skills that I never thought I could.” ",
   },
   {
-    avatarSrc: "https://mighty.tools/mockmind-api/content/human/49.jpg",
-    name: "Ashley Cooper",
+    avatarSrc: "/sakshi.png",
+    name: "Sakshi Gupta- UI/UX designer",
+    desc: "Placed at Kaliper Technologies",
     testimonial:
-      "Teamollo delivered the site within the timeline as they requested. In the end, the client found a 50% increase in traffic within days since its launch.",
+      "As a complete beginner, I was nervous about UX. However, Skrill School's structured curriculum and engaging teachers eased my fears. I've already designed  my first app, and I'm excited to learn more!",
   },
 ];
 
@@ -39,13 +42,14 @@ export default function Feedback() {
             what our customers have to say:
           </p>
         </div>
-        <Icons.arrow className="size-64 absolute top-0 left-1/2 -translate-x-[80%] lg:hidden" />
+        <Icons.arrow className="size-64 absolute top-0 left-1/2 -translate-x-[100%] lg:hidden" />
         <div className="flex flex-col gap-16">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={index}
               avatarSrc={testimonial.avatarSrc}
               name={testimonial.name}
+              desc={testimonial.desc}
               testimonial={testimonial.testimonial}
             />
           ))}
@@ -58,18 +62,20 @@ export default function Feedback() {
 interface TestimonialCardProps {
   avatarSrc: string;
   name: string;
+  desc: string;
   testimonial: string;
 }
 function TestimonialCard({
   avatarSrc,
   name,
+  desc,
   testimonial,
 }: TestimonialCardProps) {
   return (
     <div className="relative flex md:flex-col items-center gap-5 before:absolute before:w-[0.3rem] md:before:hidden before:h-full before:bg-white/10 before:rounded-full before:-translate-x-6 md:before:-translate-x-2 even:before:bg-secondary even:-translate-x-[10%] lg:even:translate-x-0 group">
       <Icons.quote className="fill-white size-7 absolute top-0 right-0 -translate-y-5 group-even:fill-secondary" />
-      <Avatar className="size-24 border-2 md:self-start">
-        <AvatarImage src={avatarSrc} />
+      <Avatar className="size-28 border-2 md:self-start">
+        <AvatarImage src={avatarSrc} className="object-cover" />
         <AvatarFallback>
           {name
             .split(" ")
@@ -77,9 +83,10 @@ function TestimonialCard({
             .join("")}
         </AvatarFallback>
       </Avatar>
-      <div className="flex flex-col space-y-3">
+      <div className="flex flex-col">
         <h3 className="text-lg font-semibold">{name}</h3>
-        <p className="text-base">{testimonial}</p>
+        <span className="text-sm font-semibold text-secondary">{desc}</span>
+        <p className="text-base text-white/50 mt-2">{testimonial}</p>
       </div>
     </div>
   );

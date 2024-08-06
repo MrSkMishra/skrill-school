@@ -1,14 +1,22 @@
+"use client";
 import Logo from "./logo";
 import { Button } from "./ui/button";
+import { useModal } from "@/context/modal";
 
 const navLinks = [
   { name: "Our Programs", href: "#ourprograms" },
   { name: "About Us", href: "#aboutus" },
-  { name: "Services", href: "#services" },
+  { name: "Services", href: "#" },
   { name: "FAQ", href: "#faq" },
 ];
 
 export default function Nav() {
+  const { isModalOpen, setIsModalOpen, setModalHeading } = useModal();
+
+  function onClickHandler() {
+    setModalHeading("Register now and consult with the team");
+    setIsModalOpen(true);
+  }
   return (
     <nav className="container bg-white/30 rounded-full flex justify-between items-center h-[5rem] mt-6 px-4 relative z-50">
       <Logo />
@@ -20,7 +28,7 @@ export default function Nav() {
           </li>
         ))}
       </ul>
-      <Button variant="secondary" size="lg">
+      <Button variant="secondary" size="lg" onClick={onClickHandler}>
         Register
       </Button>
     </nav>

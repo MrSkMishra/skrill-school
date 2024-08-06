@@ -45,7 +45,10 @@ const faqContent = [
 
 export default function Faq() {
   return (
-    <Section id="faq" containerClassName="flex flex-col items-center rounded-lg bg-gradient-to-b from-primary/10 to-secondary">
+    <Section
+      id="faq"
+      containerClassName="flex flex-col items-center rounded-lg bg-gradient-to-b from-primary/10 to-secondary"
+    >
       <Heading className="max-w-3xl pt-16">
         FAQ<span>s</span>
       </Heading>
@@ -73,11 +76,11 @@ export default function Faq() {
             <div className="flex flex-col space-y-3 mt-3">
               <div className="flex space-x-2">
                 <Icons.phone className="stroke-transparent fill-secondary" />
-                <span>Phone number</span>
+                <span>+91 82995 13060</span>
               </div>
               <div className="flex space-x-2">
                 <Icons.mail className="stroke-white fill-secondary" />
-                <span>mail to xxx</span>
+                <a href="mailto:amitverma081@gmail.com">amitverma081@gmail.com</a>
               </div>
             </div>
           </div>

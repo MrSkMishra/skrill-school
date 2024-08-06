@@ -1,7 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { useModal } from "@/context/modal"
 
 export default function Hero() {
+  const { setIsModalOpen, setModalHeading } = useModal();
+
+  function onClickHandler() {
+    setModalHeading("Request a callback from the team");
+    setIsModalOpen(true);
+  }
   return (
     <div className="relative min-h-screen overflow-hidden">
       <Image
@@ -27,7 +36,7 @@ export default function Hero() {
           <h1 className="text-8xl text-secondary font-heading lg:text-7xl text-center">
             Kyu nhi lag rahi <span className="text-primary">JOB?</span>
           </h1>
-          <Button size="xl" className="relative">
+          <Button size="xl" className="relative" onClick={onClickHandler}>
             Request a call back
           </Button>
         </div>

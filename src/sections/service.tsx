@@ -5,6 +5,7 @@ import { Icons } from "@/components/custom/icons";
 import { Section, SectionContentWrapper } from "@/components/custom/section";
 import { ReactElement } from "react";
 import { cn } from "@/lib/utils";
+
 export default function Service() {
   return (
     <Section id="services">

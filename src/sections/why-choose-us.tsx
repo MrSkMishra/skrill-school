@@ -25,7 +25,7 @@ export default function WhyChooseUs() {
           <CourseCard
             icon={<Icons.money className="size-16" />}
             title="Boost Your Earning Potential"
-            description="Learning coding opens doors to high-demand tech jobs, enhancing your employability in a competitive market."
+            description="Coding enhances critical thinking and problem-solving abilities, essential skills that employers highly value."
           />
           <CourseCard
             icon={<Icons.brain className="size-16" />}
