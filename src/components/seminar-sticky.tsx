@@ -19,6 +19,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { useState } from "react";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -45,6 +46,7 @@ const formSchema = z.object({
 });
 
 export default function SeminarSticky() {
+  const [showModal, setShowModal] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -61,6 +63,7 @@ export default function SeminarSticky() {
     } else {
       toast.error("Something went wrong! Please try again later");
     }
+    setShowModal(false);
   }
 
   return (
@@ -68,7 +71,7 @@ export default function SeminarSticky() {
       <h3>
         Know more about the Course <br /> with our free Webinar
       </h3>
-      <Dialog>
+      <Dialog open={showModal} onOpenChange={(value) => setShowModal(value)}>
         <DialogTrigger asChild>
           <Button className="self-center px-8">Book now</Button>
         </DialogTrigger>
