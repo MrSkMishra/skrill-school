@@ -4,6 +4,7 @@ import Heading from "@/components/custom/heading";
 import { Section, SectionContentWrapper } from "@/components/custom/section";
 import { Button } from "@/components/ui/button";
 import { useModal } from "@/context/modal";
+import { MouseEvent } from "react";
 
 const freeCourseCharacteristics = [
   "3-6 months Duration",
@@ -21,14 +22,15 @@ const SkrillCourseCharacteristics = [
 export default function Pricing() {
   const { setIsModalOpen, setModalHeading } = useModal();
 
-  function onClickHandler(event) {
-    if (event.target.dataset.btn) {
+  function onClickHandler(event: MouseEvent<HTMLButtonElement>) {
+    if ((event.target as HTMLButtonElement).dataset.btn) {
       setModalHeading("Enroll now to skrill school");
     } else {
       setModalHeading("Request a callback from the team");
     }
     setIsModalOpen(true);
   }
+
   return (
     <Section id="pricing" containerClassName="flex flex-col items-center">
       <Heading className="max-w-3xl">These specification at just</Heading>
@@ -37,7 +39,7 @@ export default function Pricing() {
           <div className="bg-white text-primary rounded-lg flex flex-col items-center p-8 pb-0 space-y-6 max-w-sm min-h-[600px]">
             <h1 className="text-4xl font-bold">Others</h1>
             <p className="text-5xl py-16 font-bold">₹3,00,000</p>
-            <ul className="flex flex-col  space-y-3 list-disc px-4">
+            <ul className="flex flex-col space-y-3 list-disc px-4">
               {freeCourseCharacteristics.map((item, idx) => (
                 <li key={idx} className="font-medium">
                   {item}
@@ -54,7 +56,7 @@ export default function Pricing() {
               </p>
               <p className="text-5xl font-bold text-primary">₹30,000</p>
             </div>
-            <ul className="flex flex-col  space-y-3 list-disc px-4">
+            <ul className="flex flex-col space-y-3 list-disc px-4">
               {SkrillCourseCharacteristics.map((item, idx) => (
                 <li key={idx} className="font-medium">
                   {item}
