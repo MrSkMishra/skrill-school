@@ -10,7 +10,9 @@ import React, {
 
 interface ModalContextProps {
   isModalOpen: boolean;
+  modalHeading: string;
   setIsModalOpen: (state: boolean) => void;
+  setModalHeading: (value: string) => void;
 }
 
 const ModalContext = createContext<ModalContextProps | undefined>(undefined);
