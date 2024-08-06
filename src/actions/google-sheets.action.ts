@@ -1,27 +1,30 @@
-"use server";
+'use server'
 
-import { auth, sheets } from "googleapis";
+import { google } from "googleapis";
 import * as z from "zod";
 
 const phoneRegex = new RegExp(
   /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
 );
+
 const formSchema = z.object({
   name: z.string().min(2).max(50),
   email: z
     .string()
-    .min(5, { message: "Email should provided." })
-    .email({ message: "Please give valid email address" }),
+    .min(5, { message: "Email should be provided." })
+    .email({ message: "Please provide a valid email address" }),
   phone: z
     .string()
-    .min(2, { message: "Phone number should provided." })
+    .min(2, { message: "Phone number should be provided." })
     .regex(phoneRegex, "Invalid Number!"),
 });
 
-export async function getSheetData(values) {
+type FormValues = z.infer<typeof formSchema>;
+
+export async function getSheetData(values: FormValues) {
   try {
     const { name, email, phone } = formSchema.parse(values);
-    const glAuth = await auth.getClient({
+    const auth = new google.auth.GoogleAuth({
       projectId: "second-conquest-415715",
       credentials: {
         type: "service_account",
@@ -36,9 +39,9 @@ export async function getSheetData(values) {
       scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     });
 
-    const glSheets = sheets({ version: "v4", auth: glAuth });
+    const sheets = google.sheets({ version: "v4", auth });
 
-    const data = await glSheets.spreadsheets.values.append({
+    const data = await sheets.spreadsheets.values.append({
       spreadsheetId: "1aA5SbGjfwY9n200sjN9Ws3186PhV86F5_M-IKyXxKBg",
       range: "Sheet1!A:C",
       valueInputOption: "RAW",
@@ -49,9 +52,9 @@ export async function getSheetData(values) {
 
     return { status: true };
   } catch (err) {
+    console.error(err);
     return {
       status: false,
     };
-    console.log(err);
   }
 }

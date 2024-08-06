@@ -136,7 +136,7 @@ export default function SeminarSticky() {
                 )}
               />
               <DialogFooter>
-                <Button className="self-center px-8" onClick={onSubmit}>
+                <Button className="self-center px-8" onClick={()=>onSubmit}>
                   Book now!
                 </Button>
               </DialogFooter>
