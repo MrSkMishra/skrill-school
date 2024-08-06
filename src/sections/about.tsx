@@ -41,7 +41,7 @@ export default function About() {
   );
 }
 
-interface PersonCard {
+interface PersonCardProps {
   avatarSrc: string;
   name: string;
   message: string;
