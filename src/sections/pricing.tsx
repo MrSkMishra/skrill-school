@@ -1,10 +1,19 @@
-"use client";
-
+'use client'
+import React, { useState } from "react";
 import Heading from "@/components/custom/heading";
 import { Section, SectionContentWrapper } from "@/components/custom/section";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useModal } from "@/context/modal";
-import { MouseEvent } from "react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { AlertCircle } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 const freeCourseCharacteristics = [
   "3-6 months Duration",
@@ -21,14 +30,33 @@ const SkrillCourseCharacteristics = [
 
 export default function Pricing() {
   const { setIsModalOpen, setModalHeading } = useModal();
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [paymentType, setPaymentType] = useState("");
 
-  function onClickHandler(event: MouseEvent<HTMLButtonElement>) {
-    if ((event.target as HTMLButtonElement).dataset.btn) {
-      setModalHeading("Enroll now to skrill school");
-    } else {
-      setModalHeading("Request a callback from the team");
+  function onClickHandler(event: React.MouseEvent<HTMLButtonElement>) {
+    const buttonType = event.currentTarget.getAttribute('data-btn');
+
+    switch (buttonType) {
+      case 'half-payment':
+      case 'full-payment':
+        setPaymentType(buttonType === 'half-payment' ? 'half' : 'full');
+        setIsPaymentModalOpen(true);
+        break;
+      case 'enroll':
+      default:
+        setModalHeading("Enroll now to skrill school");
+        setIsModalOpen(true);
+        break;
     }
-    setIsModalOpen(true);
+  }
+
+  function handlePaymentProceed() {
+    setIsPaymentModalOpen(false);
+    if (paymentType === 'half') {
+      window.location.href = 'https://rzp.io/l/n5ttAIJH4';
+    } else {
+      window.location.href = 'https://rzp.io/l/XKNwAO2EE';
+    }
   }
 
   return (
@@ -74,12 +102,79 @@ export default function Pricing() {
             </Button>
           </div>
         </div>
-        <div className="flex justify-center mt-16">
+
+        <div className="flex justify-center mt-16 gap-24">
+          <Card className="w-64">
+            <CardHeader>
+              <CardTitle className="flex items-center justify-between w-full">
+                <span>Half Payment</span>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <AlertCircle className="w-4 h-4 text-yellow-500" />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Note: After completion of payment, please close <br /> the payment page as your payment will be captured. <br /> If payment is already done, don't click on the link.</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>For those who want half payment</p>
+            </CardContent>
+            <CardFooter>
+              <Button data-btn="half-payment" onClick={onClickHandler}>
+                Proceed with half payment
+              </Button>
+            </CardFooter>
+          </Card>
+
+          <Card className="w-64">
+            <CardHeader>
+              <CardTitle className="flex items-center justify-between w-full">
+                <span>Full Payment</span>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <AlertCircle className="w-4 h-4 text-yellow-500" />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Note: After completion of payment, please close <br /> the payment page as your payment will be captured. <br /> If payment is already done, don't click on the link.</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>For those who want full payment</p>
+            </CardContent>
+            <CardFooter>
+              <Button data-btn="full-payment" onClick={onClickHandler}>
+                Proceed with full payment
+              </Button>
+            </CardFooter>
+          </Card>
+        </div>
+
+        <div className="flex justify-center mt-8">
           <Button className="px-10 py-8" onClick={onClickHandler}>
             Request a call back
           </Button>
         </div>
       </SectionContentWrapper>
+
+      <Dialog open={isPaymentModalOpen} onOpenChange={setIsPaymentModalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Payment Confirmation</DialogTitle>
+          </DialogHeader>
+          <p>Note: After completion of payment, please close the payment page as your payment will be captured. If payment is already done, don't click on the link.</p>
+          <DialogFooter>
+            <Button onClick={handlePaymentProceed}>Proceed</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </Section>
   );
 }
