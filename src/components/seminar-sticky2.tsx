@@ -48,6 +48,9 @@ const formSchema = z.object({
         .min(10, { message: "Invalid Number!" })
         .max(10, { message: "Invalid Number!" })
         .regex(phoneRegex, "Invalid Number!"),
+
+    course: z.string().min(2).max(50),
+
 });
 
 export default function SeminarSticky2() {
@@ -60,6 +63,7 @@ export default function SeminarSticky2() {
             name: "",
             email: "",
             phone: "",
+            course: "",
         },
     });
 
@@ -81,26 +85,29 @@ export default function SeminarSticky2() {
     return (
         <ModalProviderTwo>
 
-            <div className="bg-white rounded-lg fixed bottom-4 right-4 flex flex-col text-primary p-4 text-center space-y-2 z-50">
+            <div className="bg-white rounded-lg fixed bottom-4 right-4  flex-col text-primary p-4 text-center space-y-2 z-50 hidden">
                 <h3>Book a Free Trail <br />Session</h3>
                 <Dialog
+
                     open={isModalOpenTwo}
                     onOpenChange={(value) => setIsModalOpenTwo(value)}
+
                 >
                     <DialogTrigger asChild onClick={onClickHandler2}>
                         <Button className="self-center px-8">Book now</Button>
                     </DialogTrigger>
-                    <DialogContent className="bg-white rounded-lg">
+                    <DialogContent className="bg-[#464A6C] rounded-lg">
                         <DialogHeader>
-                            <DialogTitle className="text-4xl text-primary font-normal">
+                            <DialogTitle className="text-4xl text-primary font-normal text-white">
                                 {modalHeadingTwo}
                             </DialogTitle>
-                            <DialogDescription>
-                                Sign up to start your Journey.
+                            <DialogDescription className="text-4xl text-primary  text-white font-thin">
+                                Registration Open
                             </DialogDescription>
                         </DialogHeader>
 
-                        <Form {...form}>
+
+                        <Form  {...form} >
                             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                                 <FormField
                                     control={form.control}
@@ -110,7 +117,7 @@ export default function SeminarSticky2() {
                                             <FormLabel>Name</FormLabel>
                                             <FormControl>
                                                 <Input
-                                                    className="text-base text-primary py-6 px-4"
+                                                    className="text-base text-primary py-6 px-4 rounded-full"
                                                     placeholder="Enter your name"
                                                     {...field}
                                                 />
@@ -127,7 +134,7 @@ export default function SeminarSticky2() {
                                             <FormLabel>Email</FormLabel>
                                             <FormControl>
                                                 <Input
-                                                    className="text-base text-primary py-6 px-4"
+                                                    className="text-base text-primary py-6 px-4 rounded-full"
                                                     placeholder="Enter your emailID"
                                                     {...field}
                                                 />
@@ -141,11 +148,29 @@ export default function SeminarSticky2() {
                                     name="phone"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>Phone number</FormLabel>
+                                            <FormLabel>whatsapp number</FormLabel>
                                             <FormControl>
                                                 <Input
-                                                    className="text-base text-primary py-6 px-4"
-                                                    placeholder="Enter your phone number"
+                                                    className="text-base text-primary py-6 px-4 "
+                                                    placeholder="Enter your whatsapp number"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+
+                                <FormField
+                                    control={form.control}
+                                    name="course"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>course</FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    className="text-base text-primary py-6 px-4 rounded-full"
+                                                    placeholder="Enter your name"
                                                     {...field}
                                                 />
                                             </FormControl>
@@ -161,7 +186,7 @@ export default function SeminarSticky2() {
                                 {/* /> */}
                                 <DialogFooter>
                                     <Button className="self-center px-8" onClick={() => onSubmit}>
-                                        Book
+                                        Register
                                     </Button>
                                 </DialogFooter>
                             </form>

@@ -36,7 +36,6 @@ import { useModal } from "@/context/modal";
 const phoneRegex = new RegExp(
   /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
 );
-
 const formSchema = z.object({
   name: z.string().min(2).max(50),
   email: z
@@ -48,8 +47,10 @@ const formSchema = z.object({
     .min(10, { message: "Invalid Number!" })
     .max(10, { message: "Invalid Number!" })
     .regex(phoneRegex, "Invalid Number!"),
-});
 
+  course: z.string().min(2).max(50),
+
+});
 export default function SeminarSticky() {
   // const [date, setDate] = useState();
   const { isModalOpen, setIsModalOpen, modalHeading, setModalHeading } =
@@ -60,8 +61,10 @@ export default function SeminarSticky() {
       name: "",
       email: "",
       phone: "",
+      course: "",
     },
   });
+
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const res = await getSheetData(values);

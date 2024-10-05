@@ -17,9 +17,9 @@ import { ModalProviderTwo } from '@/context/modal2'; // ModalProviderTwo ko impo
 export default function Home() {
   return (
     <ModalProviderTwo>
+      <SeminarSticky2 />
       <main className="overflow-x-hidden">
         <SeminarSticky />
-        <SeminarSticky2 />
         <Hero />
         <Course />
         <WhyChooseUs />
