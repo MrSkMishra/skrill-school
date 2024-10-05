@@ -9,6 +9,7 @@ const phoneRegex = new RegExp(
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
+  course: z.string().min(2).max(50),
   email: z
     .string()
     .min(5, { message: "Email should be provided." })
@@ -17,13 +18,14 @@ const formSchema = z.object({
     .string()
     .min(2, { message: "Phone number should be provided." })
     .regex(phoneRegex, "Invalid Number!"),
+ 
 });
 
 type FormValues = z.infer<typeof formSchema>;
 
 export async function getSheetData(values: FormValues) {
   try {
-    const { name, email, phone } = formSchema.parse(values);
+    const { name, email, phone ,course} = formSchema.parse(values);
     const auth = new google.auth.GoogleAuth({
       projectId: "second-conquest-415715",
       credentials: {
@@ -46,7 +48,7 @@ export async function getSheetData(values: FormValues) {
       range: "Sheet1!A:C",
       valueInputOption: "RAW",
       requestBody: {
-        values: [[name, email, phone]],
+        values: [[name, email, phone ,course]],
       },
     });
 

@@ -6,13 +6,20 @@ import { Section, SectionContentWrapper } from "@/components/custom/section";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { useModal } from "@/context/modal";
 import { Calendar } from "@/components/ui/calendar";
+import { useModal2 } from "@/context/modal2";
 
 export default function Course() {
   const { setIsModalOpen, setModalHeading } = useModal();
+  const { setIsModalOpenTwo, setModalHeadingTwo } = useModal2();
 
   function onClickHandler() {
     setModalHeading("Book your slot");
     setIsModalOpen(true);
+  }
+
+  function onClickHandler2() {
+    setModalHeadingTwo("Book a Free Trail Session");
+    setIsModalOpenTwo(true);
   }
   return (
     <Section id="ourprograms" containerClassName="flex flex-col items-center">
@@ -48,15 +55,30 @@ export default function Course() {
             </div>
           </div>
 
+
           <div className="flex flex-col items-center gap-4 ml-auto lg:ml-0">
             <h2 className="text-4xl text-center font-semibold leading-[1.4]">
-              Next session starts from <br />
-              <span className="text-secondary">20 Aug 2024</span>
+              Book a free <span className="text-secondary">Trail Class</span>
             </h2>
-            <Button className="py-6 px-8" onClick={onClickHandler}>
-              Book your slot
+            <Button className="py-6 px-8" onClick={onClickHandler2}>
+              resgister
             </Button>
           </div>
+
+
+        </div>
+      </SectionContentWrapper>
+
+      <SectionContentWrapper>
+        <div className="flex flex-col items-center gap-4 ml-auto lg:ml-0">
+
+          <h2 className="text-4xl text-center font-semibold leading-[1.4]">
+            Next session starts from <br />
+            <span className="text-secondary">20 Aug 2024</span>
+          </h2>
+          <Button className="py-6 px-8" onClick={onClickHandler}>
+            Book Your slot
+          </Button>
         </div>
       </SectionContentWrapper>
     </Section>

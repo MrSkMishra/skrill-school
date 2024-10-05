@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 export default function WhyChooseUs() {
   return (
     <Section>
-      <Heading>Why Choose US?</Heading>
+      <Heading className="lg:mt-[-50px]">Why Choose US?</Heading>
       <SectionContentWrapper>
         <div className="grid gap-5 child:basis-1/4 grid-cols-5 lg:grid-cols-3 md:grid-cols-2 items-center min-h-[18rem]">
           <CourseCard

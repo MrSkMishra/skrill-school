@@ -2,6 +2,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 import Logo from "./logo";
 import Link from "next/link";
+import Image from "next/image";
 
 export const companyLinks = [
   {
@@ -67,10 +68,10 @@ export const resourcesLinks = [
 export default function Footer() {
   return (
     <footer className="relative font-main bg-secondary-500 pb-0 pt-24">
-      <img
+      <Image width={3} height={3}
         src="/footer-wave.svg"
         className="absolute  w-full bottom-0 translate-y-16 md:translate-y-0 md:top-0 md:hidden -z-10"
-      />
+        alt="" />
       <div className="container flex justify-between md:flex-col px-4">
         <div className="flex flex-col md:w-full md:items-center">
           <Link href="/">
