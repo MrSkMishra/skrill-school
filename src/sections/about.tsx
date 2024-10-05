@@ -28,10 +28,10 @@ export default function About() {
           avatarSrc="/amit.png"
           name="Amit Verma"
           message=" Welcome to Skrill School! We are thrilled to have you on this coding journey. Our mission is to empower you with the skills and confidence to excel in the tech world. Together, let' s innovate and shape the future! "
-          signature="Ratti Pradeep "
+          signature="Amit Verma "
         />
         <PersonCard
-          avatarSrc=""
+          avatarSrc="/pradeep.jpg"
           name="Ratti Pradeep"
           message="We’re excited to have you at Skrill School! Our passion for coding drives us to provide you with the best learning experience. Let’s unlock your potential and create amazing things together!"
           signature="Ratti Pradeep "

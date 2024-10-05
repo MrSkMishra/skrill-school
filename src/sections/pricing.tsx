@@ -114,7 +114,7 @@ export default function Pricing() {
                       <AlertCircle className="w-4 h-4 text-yellow-500" />
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>Note: After completion of payment, please close <br /> the payment page as your payment will be captured. <br /> If payment is already done, don't click on the link.</p>
+                      <p> Note: After completion of payment, please close <br />the payment page as your payment will be captured. <br />If payment is already done, don&apos;t click on the link.</p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -140,7 +140,7 @@ export default function Pricing() {
                       <AlertCircle className="w-4 h-4 text-yellow-500" />
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>Note: After completion of payment, please close <br /> the payment page as your payment will be captured. <br /> If payment is already done, don't click on the link.</p>
+                      <p> Note: After completion of payment, please close <br />the payment page as your payment will be captured. <br />If payment is already done, don&apos;t click on the link. </p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -169,7 +169,8 @@ export default function Pricing() {
           <DialogHeader>
             <DialogTitle>Payment Confirmation</DialogTitle>
           </DialogHeader>
-          <p>Note: After completion of payment, please close the payment page as your payment will be captured. If payment is already done, don't click on the link.</p>
+          <p> Note: After completion of payment, please close the payment page as your payment will be captured. If payment is already done, don&apos;t click on the link.
+          </p>
           <DialogFooter>
             <Button onClick={handlePaymentProceed}>Proceed</Button>
           </DialogFooter>

@@ -96,12 +96,12 @@ export default function SeminarSticky2() {
                     <DialogTrigger asChild onClick={onClickHandler2}>
                         <Button className="self-center px-8">Book now</Button>
                     </DialogTrigger>
-                    <DialogContent className="bg-[#464A6C] rounded-lg">
+                    <DialogContent className="bg-white rounded-lg">
                         <DialogHeader>
-                            <DialogTitle className="text-4xl text-primary font-normal text-white">
+                            <DialogTitle className="text-4xl text-primary font-normal ">
                                 {modalHeadingTwo}
                             </DialogTitle>
-                            <DialogDescription className="text-4xl text-primary  text-white font-thin">
+                            <DialogDescription className="text-4xl text-primary  font-thin">
                                 Registration Open
                             </DialogDescription>
                         </DialogHeader>
@@ -170,7 +170,7 @@ export default function SeminarSticky2() {
                                             <FormControl>
                                                 <Input
                                                     className="text-base text-primary py-6 px-4 rounded-full"
-                                                    placeholder="Enter your name"
+                                                    placeholder="Enter Course name"
                                                     {...field}
                                                 />
                                             </FormControl>
